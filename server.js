@@ -45,3 +45,25 @@ app.post("/api/notes", function (req, res) {
     }
   );
 });
+
+app.delete("/api/notes/:id", (req, res) => {
+  let newDb = [];
+  for (let index = 0; index < db.length; index++) {
+    if (db[index].id != req.params.id) {
+      newDb.push(db[index]);
+    }
+  }
+  db = newDb;
+  fs.writeFile("./db/db.json", JSON.stringify(db), "utf8", (err, data) => {
+    if (err) throw err;
+  });
+});
+
+app.post("/api/clear", function (req, res) {
+  notes.length = 0;
+  res.json({ ok: true });
+});
+
+app.listen(PORT, function () {
+  console.log("App listening to " + PORT);
+});

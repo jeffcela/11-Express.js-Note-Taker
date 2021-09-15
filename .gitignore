@@ -12,6 +12,7 @@
 
 #Mac Computers
 .DS_Store
+.vscode
 
 #Dependancy
 /node_modules

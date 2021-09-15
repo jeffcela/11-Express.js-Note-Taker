@@ -3,12 +3,11 @@ const app = express();
 const db = require("./Public/db/db.json");
 const fs = require("fs");
 const path = require("path");
+const PORT = process.env.PORT || 3001;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("Public"));
-
-const PORT = process.env.PORT || 3001;
 
 let noteId = db.map((note) => note.id);
 

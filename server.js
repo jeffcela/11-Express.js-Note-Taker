@@ -1,6 +1,6 @@
 const express = require("express");
-const app = express();
-const db = require("./Develop/db/db.json");
+const app = express();ç
+const db = require("./Public/db/db.json");
 const fs = require("fs");
 const path = require("path");
 
@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 3001;
 let noteId = db.map((note) => note.id);
 
 app.get("/notes", function (req, res) {
-  res.sendFile(path.join(__dirname, "./Develop/public/notes.html"));
+  res.sendFile(path.join(__dirname, "./Public/notes.html"));
 });
 
 app.get("/api/notes", function (req, res) {
@@ -21,7 +21,7 @@ app.get("/api/notes", function (req, res) {
 });
 
 app.get("*", function (req, res) {
-  res.sendFile(path.join(__dirname, "./Develop/public/index.html"));
+  res.sendFile(path.join(__dirname, "./Public/index.html"));
 });
 
 app.post("/api/notes", function (req, res) {
